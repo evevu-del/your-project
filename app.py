@@ -1,12 +1,13 @@
 import requests
 import streamlit as st
+from typing import Optional
 
 
 HF_ENDPOINT = "https://router.huggingface.co/v1/chat/completions"
 HF_MODEL = "meta-llama/Llama-3.2-1B-Instruct"
 
 
-def get_hf_token() -> str | None:
+def get_hf_token() -> Optional[str]:
     token = st.secrets.get("HF_TOKEN")
     if not token:
         return None
